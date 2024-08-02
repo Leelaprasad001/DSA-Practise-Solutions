@@ -24,12 +24,17 @@ class Solution {
     public boolean findTarget(TreeNode root, int k) {
         List<Integer> lst = new ArrayList<>();
         inOrder(root, lst);
-        int n = lst.size();
-        for(int i = 0; i < n; i++){
-            for(int j = i+1; j < n; j++){
-                if(lst.get(i) + lst.get(j) == k)
-                    return true;
-            }   
+        int left = 0, right = lst.size() - 1;
+    
+        while (left < right) {
+            int sum = lst.get(left) + lst.get(right);
+            if (sum == k) {
+                return true;
+            } else if (sum < k) {
+                left++;
+            } else {
+                right--;
+            }
         }
         return false;
     }
