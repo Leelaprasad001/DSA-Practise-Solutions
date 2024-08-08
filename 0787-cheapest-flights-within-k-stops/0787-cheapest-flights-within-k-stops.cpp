@@ -16,7 +16,8 @@ public:
             int stops = it.first;
             int node = it.second.first;
             int cost = it.second.second;
-            
+            if(stops > k)
+                continue;
             for(auto itr:adj[node]){
                 int adjNode = itr.first;
                 int c = itr.second;
