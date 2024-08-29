@@ -50,7 +50,6 @@ public:
             if(findUPar(it.first) == it.first)
                 cnt++;
         }
-        
         return stones.size() - cnt;
     }
 };
